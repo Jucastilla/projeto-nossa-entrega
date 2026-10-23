@@ -8,8 +8,6 @@ O trabalho compreende **estruturação dos registros, inspeção e validação d
 
 O período analisado vai de **09/09/2025 a 08/09/2026**. Os dados analisados são derivados de registros operacionais do Projeto Nossa Entrega.
 
-## Privacidade dos Dados
-
 Para preservar a identidade dos voluntários, os nomes reais foram substituídos por nomes fictícios. Os demais registros e indicadores foram mantidos para preservar a consistência das análises.
 
 ## Objetivo
