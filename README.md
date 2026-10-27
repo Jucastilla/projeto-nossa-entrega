@@ -20,9 +20,9 @@ A proposta é demonstrar um fluxo de trabalho em Análise de Dados, da validaç�
 
 ### 1. Fonte e Estrutura dos Dados
 
-Os registros foram coletados, organizados e estruturados a partir do controle das ações do Projeto Nossa Entrega. A planilha original foi carregada no notebook Python a partir da aba **`Participações`**, com campos relacionados a data, identificação do voluntário, primeira participação, função, tipo de transporte, quantidade de transportes na ação e observações.
+Os registros foram coletados, organizados e estruturados a partir do controle das ações do Projeto Nossa Entrega. A planilha de entrada foi carregada no notebook Python a partir da aba **`Participações`**, com campos relacionados a data, identificação do voluntário, primeira participação, função, tipo de transporte, quantidade de transportes na ação e observações.
 
-A base inicial contém **328 registros**: **323 participações de 48 voluntários distintos** e **5 registros referentes a ações sem entrega**. Esses cinco registros não representam participações individuais e foram preservados na base original por registrarem uma condição válida.
+A base inicial contém **328 registros**: **323 participações de 48 voluntários distintos** e **5 registros referentes a ações sem entrega**. Esses cinco registros não representam participações individuais e foram preservados na base por registrarem uma condição válida.
 
 ### 2. Exploração Inicial e Validação dos Dados
 
@@ -298,57 +298,45 @@ O desenvolvimento do projeto reforça a importância da qualidade dos dados, da 
 
 ## Arquivos do Projeto
 
-A organização prevista para o repositório público é:
-
-```text
-projeto-nossa-entrega/
-├── assets/
-│   └── logo_nossa_entrega.png
-├── dashboard/
-│   └── app.py
-├── data/
-│   ├── processed/
-│   │   ├── acoes.csv
-│   │   └── participacoes.csv
-│   └── raw/
-│       └── dados_nossa_entrega.xlsx
-├── notebook/
-│   └── [notebook de análise, após publicação]
-├── README.md
-└── requirements.txt
-```
+Os principais arquivos do projeto estão organizados entre o notebook responsável pela análise exploratória, as bases de dados e os arquivos necessários ao funcionamento do dashboard interativo.
 
 ### Notebook
 
-A pasta `notebook/` é destinada ao notebook Jupyter com carregamento, inspeção, validação, tratamento, preparação e análise exploratória dos dados. O nome do arquivo deve ser conferido no repositório quando for publicado. Antes da publicação, também é necessário revisar as saídas salvas das células para evitar a exposição de nomes reais.
+[Notebook — Análise Exploratória](https://github.com/Jucastilla/projeto-nossa-entrega/tree/main/notebook)
+
+Notebook Jupyter contendo o carregamento, a inspeção, a validação, o tratamento e a preparação dos dados, além das análises exploratórias e da exportação das bases utilizadas no dashboard.
 
 ### Dados
 
-- **`data/raw/`** — versão revisada da planilha de entrada, com nomes fictícios. A inclusão pública deve ocorrer somente após conferência do arquivo.
-- **`data/processed/participacoes.csv`** — uma linha por participação individual, com função e transporte.
-- **`data/processed/acoes.csv`** — uma linha por ação com indicadores consolidados.
+[Dados utilizados no projeto](https://github.com/Jucastilla/projeto-nossa-entrega/tree/main/data)
 
-As duas bases CSV alimentam o dashboard.
+A pasta contém a planilha de entrada com nomes fictícios e os arquivos processados utilizados no dashboard.
+
+As bases analíticas estão organizadas em `data/processed/`:
+
+- `participacoes.csv` — registros individuais de participação dos voluntários;
+- `acoes.csv` — indicadores consolidados por ação.
+
+A planilha de entrada está organizada em `data/raw/`, com os nomes fictícios utilizados na versão pública do projeto.
 
 ### Dashboard
 
-- **`dashboard/app.py`** — aplicativo Streamlit com as cinco páginas, indicadores, gráficos, análises e recomendações.
-- **`assets/logo_nossa_entrega.png`** — identidade visual utilizada na aplicação.
-- **`requirements.txt`** — dependências necessárias à execução.
+[Dashboard — Código Streamlit](https://github.com/Jucastilla/projeto-nossa-entrega/blob/main/dashboard/app.py)
 
-### Dashboard Online — Streamlit
+Aplicação interativa desenvolvida em Python, Streamlit e Plotly, com cinco páginas dedicadas aos indicadores, gráficos, análises e recomendações relacionadas à participação dos voluntários e à logística das ações.
 
-O objetivo desta versão é disponibilizar publicamente o dashboard pelo **Streamlit Community Cloud**, utilizando os dados revisados com nomes fictícios.
+### Dashboard Online
 
-**Link público:** será incluído após a publicação e a confirmação de que o aplicativo está funcionando.
+[Projeto Nossa Entrega — Dashboard Interativo](https://projeto-nossa-entrega.streamlit.app/)
+
+Versão pública do dashboard, desenvolvida com dados que utilizam nomes fictícios para preservar a identidade dos voluntários.
 
 ## Como Executar Localmente
 
-Com Python instalado, abra o terminal na **raiz do repositório** e execute:
+Com Python instalado, abra o terminal na raiz do repositório e execute:
 
-```bash
-python -m pip install -r requirements.txt
-python -m streamlit run dashboard/app.py
-```
+`python -m pip install -r requirements.txt`
 
-O aplicativo utiliza os arquivos CSV de `data/processed/`. Para funcionar corretamente, esses arquivos devem estar presentes nos caminhos indicados.
+`python -m streamlit run dashboard/app.py`
+
+O aplicativo utiliza os arquivos CSV disponíveis em `data/processed/`. Esses arquivos devem estar presentes nos caminhos indicados para o carregamento correto dos indicadores.
